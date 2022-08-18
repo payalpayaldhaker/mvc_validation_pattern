@@ -7,10 +7,10 @@ let studentControler = async(req,res)=>{
     const errors = validationResult(req)
     
     if (errors.isEmpty()){
-        let studentObject = await new Student(req.body);
-        //console.log(req.body)
-        studentObject.save()
-        .then(()=>{
+        let studentObject  = await new Student(req.body);
+        let studenstObject2 =  studentObject.save();
+        
+        studenstObject2.then(()=>{
             res.status(200).json({ 
                 "data":studentObject
             })
